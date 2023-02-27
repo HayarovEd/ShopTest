@@ -41,6 +41,10 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":data"))
     implementation(project(":sigin"))
+    implementation(project(":login"))
+    implementation(project(":profile"))
+    implementation(project(":home"))
+    implementation(project(":product"))
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

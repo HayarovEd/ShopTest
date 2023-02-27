@@ -3,23 +3,60 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/signIn_fragment">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/signIn_fragment"
         android:name="com.edurda77.sigin.ui.SignInFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_sign_in" />
+        android:label="sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_sign_in_to_homeFragment"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_sign_in_to_logInFragment"
+            app:destination="@id/logIn_fragment" />
+    </fragment>
+
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.edurda77.shoptest.ui.dashboard.DashboardFragment"
+        android:id="@+id/navigation_favorite"
+        android:name="com.edurda77.shoptest.ui.favorite.FavoriteFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_favorite" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_note"
         android:name="com.edurda77.shoptest.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_basket"
+        android:name="com.edurda77.shoptest.ui.basket.BasketFragment"
+        android:label="fragment_basket"
+        tools:layout="@layout/fragment_basket" />
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.edurda77.home.ui.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_navigation_home_to_productFragment"
+            app:destination="@id/product_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/logIn_fragment"
+        android:name="com.edurda77.login.ui.LogInFragment"
+        android:label="LogInFragment" >
+        <action
+            android:id="@+id/action_logInFragment_to_homeFragment"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.edurda77.profile.ui.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/product_fragment"
+        android:name="com.edurda77.product.ui.ProductFragment"
+        android:label="ProductFragment" />
 </navigation>
