@@ -1,5 +1,6 @@
 package com.edurda77.data.local
 
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -8,13 +9,13 @@ import com.edurda77.domain.utils.EMAIL
 import com.edurda77.domain.utils.PASSWORD
 import com.edurda77.domain.utils.TABLE
 import com.edurda77.domain.utils.USER
-
+@Dao
 interface UserDao {
 
     @Query("SELECT * FROM  $TABLE WHERE $USER = :user AND $PASSWORD = :password")
     suspend fun getLogin(user: String, password: String): UserEntitty?
 
-    @Query("SELECT * FROM  $TABLE WHERE $USER = :user AND $PASSWORD = :password")
+    @Query("SELECT * FROM  $TABLE WHERE $USER = :user")
     suspend fun getContentUser(user: String): UserEntitty?
 
     @Query("SELECT * FROM  $TABLE WHERE $USER = :user OR $EMAIL = :email")
