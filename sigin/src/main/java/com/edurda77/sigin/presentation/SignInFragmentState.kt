@@ -1,4 +1,4 @@
-package com.edurda77.shoptest.ui.home
+package com.edurda77.sigin.presentation
 
 sealed class SignInFragmentState {
     object Empty: SignInFragmentState()

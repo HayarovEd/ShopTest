@@ -1,4 +1,4 @@
-package com.edurda77.shoptest.ui.home
+package com.edurda77.sigin.presentation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

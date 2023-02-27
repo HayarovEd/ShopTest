@@ -1,22 +1,20 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
 }
 
 android {
-    namespace 'com.edurda77.shoptest'
+    namespace 'com.edurda77.sigin'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.edurda77.shoptest"
         minSdk 24
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -39,8 +37,6 @@ android {
 
 dependencies {
     implementation(project(":domain"))
-    implementation(project(":data"))
-    implementation(project(":sigin"))
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -58,12 +54,6 @@ dependencies {
     implementation 'com.google.dagger:hilt-android:2.43.2'
     annotationProcessor 'com.google.dagger:hilt-compiler:2.43.2'
     kapt 'com.google.dagger:hilt-compiler:2.43.2'
-
-    //Room
-    implementation 'androidx.room:room-common:2.5.0'
-    implementation 'androidx.room:room-ktx:2.5.0'
-    implementation 'androidx.room:room-runtime:2.5.0'
-    kapt 'androidx.room:room-compiler:2.5.0'
 
     //KTX
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
