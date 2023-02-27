@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.SignInFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/signInTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/sign_in"
+                android:textColor="@color/text_dark"
+                android:textSize="26sp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/firstNameEv"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="44dp"
+                android:background="@color/background_gray"
+                android:gravity="center"
+                android:hint="@string/first_name"
+                android:textColorHint="@color/text_gray"
+                android:textSize="11sp"
+                app:layout_constraintTop_toBottomOf="@id/signInTv" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/lastNameEv"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="44dp"
+                android:background="@color/background_gray"
+                android:gravity="center"
+                android:hint="@string/last_name"
+                android:textColorHint="@color/text_gray"
+                android:textSize="11sp"
+                app:layout_constraintTop_toBottomOf="@id/firstNameEv" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/emailEv"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="44dp"
+                android:background="@color/background_gray"
+                android:gravity="center"
+                android:hint="@string/first_name"
+                android:textColorHint="@color/text_gray"
+                android:textSize="11sp"
+                app:layout_constraintTop_toBottomOf="@id/lastNameEv" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/signInBt"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginStart="43dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="43dp"
+                android:background="@color/background_blue"
+                android:text="@string/sign_in"
+                android:textAllCaps="false"
+                android:textColor="@color/text_light"
+                android:textSize="14sp"
+                app:layout_constraintTop_toBottomOf="@id/emailEv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/alreadyTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="42dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/already_account"
+                android:textColor="@color/text_gray_light"
+                android:textSize="10sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/signInBt"
+                tools:ignore="SmallSp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/logInTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/log_in"
+                android:textColor="@color/text_blue"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@id/alreadyTv"
+                app:layout_constraintTop_toBottomOf="@id/signInBt"
+                tools:ignore="SmallSp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/googleIv"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="11dp"
+                android:src="@drawable/ic_google"
+                app:layout_constraintEnd_toStartOf="@id/signGoogleTv"
+                app:layout_constraintTop_toBottomOf="@id/alreadyTv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/signGoogleTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/sign_in_google"
+                android:textColor="@color/text_black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/googleIv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/googleIv"
+                tools:ignore="SmallSp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appleIv"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="11dp"
+                android:src="@drawable/ic_apple"
+                app:layout_constraintEnd_toStartOf="@id/signAppleTv"
+                app:layout_constraintTop_toBottomOf="@id/googleIv" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/signAppleTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="@string/sign_in_apple"
+                android:textColor="@color/text_black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@id/appleIv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/appleIv"
+                tools:ignore="SmallSp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
