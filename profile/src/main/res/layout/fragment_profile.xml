@@ -1,13 +1,307 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.ProfileFragment">
+    android:layout_height="match_parent">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="profile" />
+        android:layout_height="wrap_content"
+        tools:context=".ui.ProfileFragment">
 
-</FrameLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/leftIv"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="26dp"
+            android:src="@drawable/ic_arrow_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/profileTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center"
+            android:text="@string/profile"
+            android:textColor="@color/text_black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/leftIv"
+            app:layout_constraintTop_toTopOf="@id/leftIv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/photoIv"
+            android:layout_width="61dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="19dp"
+            android:src="@drawable/photo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/changePhotoTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center"
+            android:text="@string/change_photo"
+            android:textColor="@color/text_gray_light"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/photoIv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:gravity="center"
+            android:text="@string/name"
+            android:textColor="@color/text_black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/changePhotoTv" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uploadBt"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="43dp"
+            android:background="@drawable/shape_blue"
+            android:drawableLeft="@drawable/ic_share"
+            android:paddingStart="57dp"
+            android:paddingEnd="75dp"
+            android:text="@string/upload"
+            android:textAllCaps="false"
+            android:textColor="@color/text_light"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/nameTv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tradeIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="14dp"
+            android:src="@drawable/ic_trade"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/uploadBt" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tradeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/trade_store"
+            android:textColor="@color/text_semi_dark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/tradeIv"
+            app:layout_constraintStart_toEndOf="@id/tradeIv"
+            app:layout_constraintTop_toTopOf="@id/tradeIv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/rightTradeIv"
+            android:layout_width="6dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="45dp"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@id/tradeIv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tradeIv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/paymentIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_trade"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tradeIv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/paymentTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/payment"
+            android:textColor="@color/text_semi_dark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/paymentIv"
+            app:layout_constraintStart_toEndOf="@id/paymentIv"
+            app:layout_constraintTop_toTopOf="@id/paymentIv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/rightPaymentIv"
+            android:layout_width="6dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="45dp"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@id/paymentIv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/paymentIv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/balanceIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_trade"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/paymentIv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/balanceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/balance"
+            android:textColor="@color/text_semi_dark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/balanceIv"
+            app:layout_constraintStart_toEndOf="@id/balanceIv"
+            app:layout_constraintTop_toTopOf="@id/balanceIv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/balanceNomIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="45dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/balance_nominal"
+            android:textColor="@color/text_semi_dark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/balanceIv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/balanceIv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/tradeHistoryIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_trade"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/balanceIv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tradeHistoryTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/trade_history"
+            android:textColor="@color/text_semi_dark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/tradeHistoryIv"
+            app:layout_constraintStart_toEndOf="@id/tradeHistoryIv"
+            app:layout_constraintTop_toTopOf="@id/tradeHistoryIv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/rightTradeHistoryIv"
+            android:layout_width="6dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="45dp"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@id/tradeHistoryIv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tradeHistoryIv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/RestoreIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_restore"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tradeHistoryIv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/RestoreTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/restore_purchase"
+            android:textColor="@color/text_semi_dark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/RestoreIv"
+            app:layout_constraintStart_toEndOf="@id/RestoreIv"
+            app:layout_constraintTop_toTopOf="@id/RestoreIv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/rightRestoreIv"
+            android:layout_width="6dp"
+            android:layout_height="10dp"
+            android:layout_marginEnd="45dp"
+            android:src="@drawable/ic_arrow_right"
+            app:layout_constraintBottom_toBottomOf="@id/RestoreIv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/RestoreIv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/HelpIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/ic_help"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/RestoreIv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/HelpTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/help"
+            android:textColor="@color/text_semi_dark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/HelpIv"
+            app:layout_constraintStart_toEndOf="@id/HelpIv"
+            app:layout_constraintTop_toTopOf="@id/HelpIv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/LogOotIv"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="70dp"
+            android:src="@drawable/ic_logout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/HelpIv"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/logOutTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/log_out"
+            android:textColor="@color/text_semi_dark"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/LogOotIv"
+            app:layout_constraintStart_toEndOf="@id/LogOotIv"
+            app:layout_constraintTop_toTopOf="@id/LogOotIv" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

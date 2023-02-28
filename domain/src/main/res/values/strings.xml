@@ -11,5 +11,20 @@
 
     <string name="well_comeback">Welcome back</string>
     <string name="password">Password</string>
+
+    <string name="profile">Profile</string>
+    <string name="change_photo">Change photo</string>
+    <string name="name">Satria Adhi Pradana</string>
+    <string name="upload">Upload item</string>
+    <string name="trade_store">Trade store</string>
+    <string name="payment">Payment method</string>
+    <string name="balance">Balance</string>
+    <string name="balance_nominal">$ 1593</string>
+    <string name="trade_history">Trade history</string>
+    <string name="restore_purchase">Restore Purchase</string>
+    <string name="help">Help</string>
+    <string name="log_out">Log out</string>
+
+
 </resources>
 
