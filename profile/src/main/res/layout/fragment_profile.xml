@@ -279,7 +279,7 @@
             app:layout_constraintTop_toTopOf="@id/HelpIv" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/LogOotIv"
+            android:id="@+id/logOotIv"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="32dp"
@@ -299,9 +299,9 @@
             android:text="@string/log_out"
             android:textColor="@color/text_semi_dark"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/LogOotIv"
-            app:layout_constraintStart_toEndOf="@id/LogOotIv"
-            app:layout_constraintTop_toTopOf="@id/LogOotIv" />
+            app:layout_constraintBottom_toBottomOf="@id/logOotIv"
+            app:layout_constraintStart_toEndOf="@id/logOotIv"
+            app:layout_constraintTop_toTopOf="@id/logOotIv" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

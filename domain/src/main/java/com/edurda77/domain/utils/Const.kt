@@ -7,3 +7,4 @@ const val USER = "user"
 const val PASSWORD = "password"
 const val EMAIL = "email"
 const val USERNAME = "username"
+const val PICK_IMAGE_REQUEST = 1
