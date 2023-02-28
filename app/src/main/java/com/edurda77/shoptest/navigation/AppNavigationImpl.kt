@@ -17,10 +17,7 @@ class AppNavigationImpl @Inject constructor(
     }
 
     override fun execute(
-        action: Action,
-        sec_id: String,
-        changePrice: Double,
-        changePercent: Double
+        action: Action
     ) {
         when (action) {
             Action.SignInToLogIn -> {

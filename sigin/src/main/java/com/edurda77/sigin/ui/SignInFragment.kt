@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.edurda77.domain.navigation.Action
+import com.edurda77.domain.navigation.AppNavigation
 import com.edurda77.sigin.databinding.FragmentSignInBinding
 import com.edurda77.sigin.presentation.SignInFragmentState
 import com.edurda77.sigin.presentation.SignInFragmentViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignInFragment : Fragment() {
@@ -18,6 +21,8 @@ class SignInFragment : Fragment() {
     private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<SignInFragmentViewModel>()
+    @Inject
+    lateinit var coordinator: AppNavigation
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,6 +41,9 @@ class SignInFragment : Fragment() {
                 }
                 is SignInFragmentState.Success -> {
                     Toast.makeText(requireContext(), state.data, Toast.LENGTH_LONG).show()
+                    coordinator.execute(
+                        Action.SignInToHome
+                    )
                 }
                 is SignInFragmentState.Error -> {
                     Toast.makeText(requireContext(), state.error, Toast.LENGTH_LONG).show()
@@ -50,6 +58,11 @@ class SignInFragment : Fragment() {
                 userName = binding.firstNameEv.text.toString(),
                 password = binding.lastNameEv.text.toString(),
                 email = binding.emailEv.text.toString()
+            )
+        }
+        binding.logInTv.setOnClickListener {
+            coordinator.execute(
+                Action.SignInToLogIn
             )
         }
     }

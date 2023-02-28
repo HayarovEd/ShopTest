@@ -68,6 +68,8 @@ class MainActivity : AppCompatActivity() {
     }
     private fun showBottomNav() {
         navView.visibility = View.VISIBLE
+        navView.itemIconTintList = null
+        //navView.itemActiveIndicatorColor
     }
 
     private fun hideBottomNav() {
