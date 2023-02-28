@@ -9,6 +9,8 @@ import com.edurda77.domain.utils.EMAIL
 import com.edurda77.domain.utils.PASSWORD
 import com.edurda77.domain.utils.TABLE
 import com.edurda77.domain.utils.USER
+import java.util.Stack
+
 @Dao
 interface UserDao {
 
@@ -24,6 +26,9 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun insertUser(user: UserEntitty)
 
-    @Delete
-    suspend fun deleteUser(user: UserEntitty)
+    @Query("DELETE FROM $TABLE WHERE $USER=:user")
+    suspend fun deleteUser (user: String)
+
+    /*@Delete
+    suspend fun deleteUser(user: UserEntitty)*/
 }

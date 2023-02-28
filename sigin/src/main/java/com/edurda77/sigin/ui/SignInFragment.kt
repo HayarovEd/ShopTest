@@ -42,7 +42,7 @@ class SignInFragment : Fragment() {
                 is SignInFragmentState.Success -> {
                     Toast.makeText(requireContext(), state.data, Toast.LENGTH_LONG).show()
                     coordinator.execute(
-                        Action.SignInToHome
+                        Action.SignInToHome, state.user
                     )
                 }
                 is SignInFragmentState.Error -> {
@@ -62,7 +62,8 @@ class SignInFragment : Fragment() {
         }
         binding.logInTv.setOnClickListener {
             coordinator.execute(
-                Action.SignInToLogIn
+                action = Action.SignInToLogIn,
+                user = ""
             )
         }
     }

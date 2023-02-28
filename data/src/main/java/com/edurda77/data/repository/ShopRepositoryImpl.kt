@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class ShopRepositoryImpl @Inject constructor(private val dao: UserDao) : ShopRepository {
 
-    override suspend fun getLogin(user: String, password: String): Resource<User> {
+    override suspend fun getLogin(user: String, password: String): Resource<String> {
         val contentUser = dao.getContentUser(user = user)
         return try {
             if (contentUser == null) {
@@ -20,7 +20,7 @@ class ShopRepositoryImpl @Inject constructor(private val dao: UserDao) : ShopRep
                 if (validPassword == null) {
                     Resource.Error("password incorrect")
                 } else {
-                    Resource.Success(validPassword.convertToUser())
+                    Resource.Success("Ok")
                 }
             }
         } catch (error: java.lang.Exception) {
@@ -42,7 +42,7 @@ class ShopRepositoryImpl @Inject constructor(private val dao: UserDao) : ShopRep
         }
     }
 
-    override suspend fun deleteUser(user: User) {
-        dao.deleteUser(user.convertToUserEntity())
+    override suspend fun deleteUser(user: String) {
+        dao.deleteUser(user)
     }
 }

@@ -1,10 +1,12 @@
 package com.edurda77.shoptest.navigation
 
 import android.app.Activity
+import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.edurda77.domain.navigation.Action
 import com.edurda77.domain.navigation.AppNavigation
+import com.edurda77.domain.utils.USERNAME
 import com.edurda77.shoptest.R
 import javax.inject.Inject
 
@@ -17,17 +19,21 @@ class AppNavigationImpl @Inject constructor(
     }
 
     override fun execute(
-        action: Action
+        action: Action, user:String
     ) {
         when (action) {
             Action.SignInToLogIn -> {
                 navController.navigate(R.id.logIn_fragment)
             }
             Action.SignInToHome -> {
-                navController.navigate(R.id.navigation_home)
+                val bundle = Bundle()
+                bundle.putString(USERNAME, user)
+                navController.navigate(R.id.navigation_home, bundle)
             }
             Action.LogInToHome -> {
-                navController.navigate(R.id.navigation_home)
+                val bundle = Bundle()
+                bundle.putString(USERNAME, user)
+                navController.navigate(R.id.navigation_home, bundle)
             }
             Action.ProfileToSignIn -> {
                 navController.navigate(R.id.signIn_fragment)

@@ -5,9 +5,9 @@ import com.edurda77.domain.utils.Resource
 
 interface ShopRepository {
 
-    suspend fun getLogin(user:String, password: String): Resource<User>
+    suspend fun getLogin(user:String, password: String): Resource<String>
 
     suspend fun insertNewUser(user: User): Resource<String>
 
-    suspend fun deleteUser(user: User)
+    suspend fun deleteUser(user: String)
 }

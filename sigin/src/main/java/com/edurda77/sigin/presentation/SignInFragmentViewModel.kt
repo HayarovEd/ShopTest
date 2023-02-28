@@ -32,7 +32,7 @@ class SignInFragmentViewModel @Inject constructor(private val repo: ShopReposito
                             SignInFragmentState.Error(error = result.message ?: "unknown error")
                     }
                     is Resource.Success -> {
-                        _state.value = result.data?.let { SignInFragmentState.Success(data = it) }
+                        _state.value = result.data?.let { SignInFragmentState.Success(data = it, user = userName) }
                     }
                 }
             }
