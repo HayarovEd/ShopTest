@@ -1,13 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.HomeFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="home" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/menuIv"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="23dp"
+        android:src="@drawable/ic_hamburger"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/titleStartTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:text="@string/trade_by"
+        android:textColor="@color/text_black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/menuIv"
+        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@id/menuIv" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/titleEndTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_regular"
+        android:gravity="center"
+        android:text="@string/bata"
+        android:textColor="@color/background_blue"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/menuIv"
+        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@id/menuIv" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/photoIv"
+        android:layout_width="31dp"
+        android:layout_height="31dp"
+        android:layout_marginEnd="47dp"
+        android:src="@drawable/photo"
+        app:layout_constraintBottom_toBottomOf="@id/menuIv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/menuIv" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/locationTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:text="@string/location"
+        android:textColor="@color/text_black"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@id/photoIv"
+        app:layout_constraintStart_toStartOf="@id/photoIv"
+        app:layout_constraintTop_toBottomOf="@id/photoIv" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/downIv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_down"
+        app:layout_constraintBottom_toBottomOf="@id/locationTv"
+        app:layout_constraintStart_toEndOf="@id/locationTv"
+        app:layout_constraintTop_toTopOf="@id/locationTv" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/searchEv"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="56dp"
+        android:background="@drawable/shape_gray"
+        android:drawableEnd="@drawable/ic_search"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:hint="@string/hint_search"
+        android:paddingStart="20dp"
+        android:paddingEnd="15dp"
+        android:textColorHint="@color/text_dark_grey"
+        android:textSize="9sp"
+        app:layout_constraintTop_toBottomOf="@id/titleStartTv" />
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoryRv"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/searchEv"/>
+
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.55" />
+</androidx.constraintlayout.widget.ConstraintLayout>
