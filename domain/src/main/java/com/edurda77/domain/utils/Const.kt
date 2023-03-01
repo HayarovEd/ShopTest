@@ -11,6 +11,7 @@ const val PASSWORD = "password"
 const val EMAIL = "email"
 const val USERNAME = "username"
 const val PICK_IMAGE_REQUEST = 1
+const val BASE_URL = "https://run.mocky.io/v3/"
 
 val categoriesList = listOf(
     Category(

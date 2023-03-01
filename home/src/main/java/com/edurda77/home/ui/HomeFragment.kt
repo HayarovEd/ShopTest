@@ -42,6 +42,6 @@ class HomeFragment : Fragment() {
         )
         val adapter = CategoryAdapter(data)
         recyclerView.adapter = adapter
-        (recyclerView.layoutManager as LinearLayoutManager).scrollToPosition(Integer.MAX_VALUE/2)
+        (recyclerView.layoutManager as LinearLayoutManager).scrollToPosition((Integer.MAX_VALUE/2)-3)
     }
 }

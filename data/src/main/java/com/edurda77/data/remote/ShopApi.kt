@@ -3,6 +3,7 @@ package com.edurda77.data.remote
 import com.edurda77.data.remote.dto.FlashSalesDto
 import com.edurda77.data.remote.dto.ProductDetailsDto
 import com.edurda77.data.remote.dto.ProductLatestDto
+import com.edurda77.data.remote.dto.WordsDto
 import retrofit2.http.GET
 
 interface ShopApi {
@@ -17,4 +18,8 @@ interface ShopApi {
     @GET("f7f99d04-4971-45d5-92e0-70333383c239")
     suspend fun getProductDetails(
     ) : ProductDetailsDto
+
+    @GET("4c9cd822-9479-4509-803d-63197e5a9e19")
+    suspend fun searchByChar(
+    ) : WordsDto
 }
