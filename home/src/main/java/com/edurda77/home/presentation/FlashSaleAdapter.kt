@@ -3,17 +3,17 @@ package com.edurda77.home.presentation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.edurda77.domain.model.Category
 import com.edurda77.domain.model.ElementFlashSale
-import com.edurda77.domain.model.ElementLatest
-import com.edurda77.home.databinding.ItemCategoryBinding
 import com.edurda77.home.databinding.ItemFlashSalesBinding
-import com.edurda77.home.databinding.ItemLatestBinding
 
 class FlashSaleAdapter (
-    private val dataList: List<ElementFlashSale>
+    private val dataList: List<ElementFlashSale>,
+    private val onClickListener: OnStateClickListener
 ) : RecyclerView.Adapter<FlashSaleHolder>() {
 
+    interface OnStateClickListener {
+        fun onStateClick(item:ElementFlashSale, position: Int)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FlashSaleHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -24,6 +24,9 @@ class FlashSaleAdapter (
         val positionInList = position % dataList.size
         val item: ElementFlashSale = dataList[positionInList]
         holder.bind(item)
+        holder.itemView.setOnClickListener {
+            onClickListener.onStateClick(item, position)
+        }
     }
 
     override fun getItemCount(): Int {

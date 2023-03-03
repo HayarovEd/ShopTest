@@ -40,3 +40,10 @@ val categoriesList = listOf(
     )
 
 )
+
+val brands = listOf(
+    R.drawable.shape_round_corner,
+    R.drawable.shape_round_corner,
+    R.drawable.shape_round_corner,
+    R.drawable.shape_round_corner,
+)
