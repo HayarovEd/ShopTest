@@ -4,6 +4,7 @@ import com.edurda77.data.local.UserDao
 import com.edurda77.data.mapper.convertToElementsFlashSales
 import com.edurda77.data.mapper.convertToElementsLatest
 import com.edurda77.data.mapper.convertToElementsSearch
+import com.edurda77.data.mapper.convertToListString
 import com.edurda77.data.mapper.convertToProductDetail
 import com.edurda77.data.mapper.convertToUserEntity
 import com.edurda77.data.remote.ShopApi
@@ -80,10 +81,10 @@ class ShopRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getProductByChars(): Resource<List<ElementSearch>> {
+    override suspend fun getProductByChars(): Resource<List<String>> {
         return try {
             Resource.Success(
-                data = shopApi.searchByChar().convertToElementsSearch()
+                data = shopApi.searchByChar().convertToListString()
             )
         } catch (e: Exception) {
             e.printStackTrace()

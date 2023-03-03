@@ -19,7 +19,7 @@ interface ShopRepository {
 
     suspend fun getFlashSales() : Resource<List<ElementFlashSale>>
 
-    suspend fun getProductByChars() : Resource<List<ElementSearch>>
+    suspend fun getProductByChars() : Resource<List<String>>
 
     suspend fun getProductDetail() : Resource<ProductDetail>
 }
