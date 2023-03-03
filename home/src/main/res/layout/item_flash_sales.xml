@@ -6,15 +6,15 @@
     app:cardCornerRadius="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="120dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="6dp"
-        android:background="@drawable/shape_gray">
+        android:layout_width="175dp"
+        android:layout_height="222dp"
+        android:layout_marginStart="4dp">
+
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/photoIv"
-            android:layout_width="114dp"
-            android:layout_height="149dp"
+            android:layout_width="174dp"
+            android:layout_height="221dp"
             android:scaleType="centerCrop"
             android:src="@drawable/photo"
             app:layout_constraintEnd_toEndOf="parent"
@@ -22,31 +22,46 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/categoryItemTv"
-            android:layout_width="35dp"
-            android:layout_height="15dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="92dp"
+            android:id="@+id/salesTv"
+            android:layout_width="50dp"
+            android:layout_height="17dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/shape_gray"
             android:fontFamily="@font/poppins_regular"
             android:gravity="center"
             android:text="@string/view_all"
             android:textColor="@color/text_dark_600"
-            android:textSize="6sp"
+            android:textSize="9sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/categoryItemTv"
+            android:layout_width="50dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="121dp"
+            android:background="@drawable/shape_red"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:text="@string/view_all"
+            android:textColor="@color/text_white"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/modelTv"
-            android:layout_width="75dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="3dp"
+            android:layout_width="87dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="6dp"
             android:fontFamily="@font/poppins_regular"
             android:maxLines="2"
             android:text="@string/view_all"
             android:textColor="@color/text_white"
-            android:textSize="9sp"
+            android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/categoryItemTv" />
 
@@ -54,8 +69,8 @@
             android:id="@+id/priceTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="12dp"
             android:fontFamily="@font/poppins_regular"
             android:text="@string/view_all"
             android:textColor="@color/text_white"
@@ -65,15 +80,27 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addBt"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="7dp"
             android:background="@color/background_gray_900"
             android:contentDescription="@string/add_to_basket"
             android:src="@drawable/ic_plus"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/favoriteBt"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginEnd="5dp"
+            android:background="@color/background_gray_900"
+            android:contentDescription="@string/add_to_basket"
+            android:src="@drawable/ic_heart"
+            app:layout_constraintBottom_toBottomOf="@id/addBt"
+            app:layout_constraintEnd_toStartOf="@id/addBt"
+            app:layout_constraintTop_toTopOf="@id/addBt" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

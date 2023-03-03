@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.edurda77.domain.model.Category
+import com.edurda77.domain.model.ElementFlashSale
 import com.edurda77.domain.model.ElementLatest
 import com.edurda77.domain.model.ElementSearch
 import com.edurda77.home.R
@@ -60,13 +61,17 @@ class HomeFragment : Fragment() {
             when (state) {
                 is HomeFragmetnState.Success -> {
                     binding.latestRv.isVisible = true
+                    binding.flashSalesRv.isVisible = true
                     initLatestRecyclerView(state.latest)
+                    initFlashSaleRecyclerView(state.flashSales)
                 }
                 is HomeFragmetnState.Error -> {
                     binding.latestRv.isVisible = false
+                    binding.flashSalesRv.isVisible = false
                 }
                 is HomeFragmetnState.Loading -> {
                     binding.latestRv.isVisible = false
+                    binding.flashSalesRv.isVisible = false
                 }
             }
         }
@@ -74,6 +79,16 @@ class HomeFragment : Fragment() {
         binding.searchEv.doOnTextChanged { text, start, before, count ->
             viewModel.searchByChars(text.toString())
         }
+    }
+
+    private fun initFlashSaleRecyclerView(flashSales: List<ElementFlashSale>) {
+        val recyclerView: RecyclerView = binding.flashSalesRv
+        recyclerView.layoutManager = LinearLayoutManager(
+            requireContext(), LinearLayoutManager.HORIZONTAL, false
+        )
+        val adapter = FlashSaleAdapter(flashSales)
+        recyclerView.adapter = adapter
+        (recyclerView.layoutManager as LinearLayoutManager).scrollToPosition((Integer.MAX_VALUE/2)-1)
     }
 
     private fun initLatestRecyclerView(latest: List<ElementLatest>) {
