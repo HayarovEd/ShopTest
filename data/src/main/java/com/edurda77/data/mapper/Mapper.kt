@@ -25,6 +25,12 @@ fun WordsDto.convertToElementsSearch(): List<ElementSearch> {
     }
 }
 
+fun WordsDto.convertToListString(): List<String> {
+    return this.words.map {
+        it
+    }
+}
+
 fun ProductLatestDto.convertToElementsLatest(): List<ElementLatest> {
     return this.latest.map { latest ->
         ElementLatest(
