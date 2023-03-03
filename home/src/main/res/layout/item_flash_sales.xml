@@ -85,7 +85,7 @@
             android:layout_marginEnd="7dp"
             android:layout_marginBottom="7dp"
             android:background="@drawable/shape_circle_gray"
-            android:contentDescription="@string/add_to_basket"
+            android:contentDescription="@string/add_to_cart"
             android:src="@drawable/ic_plus"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -96,7 +96,7 @@
             android:layout_height="28dp"
             android:layout_marginEnd="5dp"
             android:background="@drawable/shape_circle_gray"
-            android:contentDescription="@string/add_to_basket"
+            android:contentDescription="@string/add_to_cart"
             android:src="@drawable/ic_heart"
             app:layout_constraintBottom_toBottomOf="@id/addBt"
             app:layout_constraintEnd_toStartOf="@id/addBt"

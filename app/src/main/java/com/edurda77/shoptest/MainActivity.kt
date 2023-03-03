@@ -60,6 +60,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_profile -> {
                     showBottomNav()
                 }
+                R.id.product_fragment -> {
+                    showBottomNav()
+                }
                 else -> {
                     hideBottomNav()
                 }

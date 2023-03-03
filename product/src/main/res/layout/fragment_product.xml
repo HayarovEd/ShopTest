@@ -1,13 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ProductFragment">
-
-    <TextView
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="product" />
+        android:layout_height="wrap_content"
+        tools:context=".ui.ProductFragment">
 
-</FrameLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/leftIv"
+            android:layout_width="6dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_left_arrow_short"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/photoRv"
+            android:layout_width="match_parent"
+            android:layout_height="280dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="11dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/leftIv"/>
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/photoVp"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/photoRv"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
