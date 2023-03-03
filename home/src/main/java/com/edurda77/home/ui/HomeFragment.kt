@@ -8,20 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.edurda77.domain.model.Category
+import com.edurda77.domain.model.ElementLatest
 import com.edurda77.domain.model.ElementSearch
 import com.edurda77.home.R
 import com.edurda77.home.databinding.FragmentHomeBinding
-import com.edurda77.home.presentation.CategoryAdapter
-import com.edurda77.home.presentation.HomeViewModel
-import com.edurda77.home.presentation.SearcheState
+import com.edurda77.home.presentation.*
 import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
-f
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -57,9 +56,34 @@ class HomeFragment : Fragment() {
                     }
                 }
         }
+        viewModel.state.observe(viewLifecycleOwner) {state->
+            when (state) {
+                is HomeFragmetnState.Success -> {
+                    binding.latestRv.isVisible = true
+                    initLatestRecyclerView(state.latest)
+                }
+                is HomeFragmetnState.Error -> {
+                    binding.latestRv.isVisible = false
+                }
+                is HomeFragmetnState.Loading -> {
+                    binding.latestRv.isVisible = false
+                }
+            }
+        }
+
         binding.searchEv.doOnTextChanged { text, start, before, count ->
             viewModel.searchByChars(text.toString())
         }
+    }
+
+    private fun initLatestRecyclerView(latest: List<ElementLatest>) {
+        val recyclerView: RecyclerView = binding.latestRv
+        recyclerView.layoutManager = LinearLayoutManager(
+            requireContext(), LinearLayoutManager.HORIZONTAL, false
+        )
+        val adapter = LatestAdapter(latest)
+        recyclerView.adapter = adapter
+        (recyclerView.layoutManager as LinearLayoutManager).scrollToPosition((Integer.MAX_VALUE/2)-1)
     }
 
     private fun initCategoryRecyclerView(data: List<Category>) {

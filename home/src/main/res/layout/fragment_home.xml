@@ -104,7 +104,41 @@
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/searchEv"/>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/latestTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="11dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/latest"
+        android:textColor="@color/text_semi_dark"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/categoryRv"/>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/categoryItemTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="11dp"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/view_all"
+        android:textColor="@color/text_gray_light"
+        android:textSize="9sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/latestTv"
+        app:layout_constraintBottom_toBottomOf="@id/latestTv"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/latestRv"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/latestTv"/>
 
 
 
