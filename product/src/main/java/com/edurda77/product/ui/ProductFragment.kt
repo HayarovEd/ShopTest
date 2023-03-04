@@ -67,24 +67,24 @@ class ProductFragment : Fragment() {
         val bigStateClickListener: BigPhotoAdapter.OnStateClickListener =
             object : BigPhotoAdapter.OnStateClickListener {
                 override fun onStateClick(item: String, position: Int) {
-                    viewModel.getPosition(position)
+                    //viewModel.getPosition(position)
                 }
             }
         val bigAdapter = BigPhotoAdapter(imageUrls, bigStateClickListener)
         bigRecyclerView.adapter = bigAdapter
-        /* bigRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        bigRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
              override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                 val position = (recyclerView.layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
-                 viewModel.getPosition(position)
+                 val currentPosition = (recyclerView.layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
+                 //viewModel.getPosition(currentPosition)
              }
-         })*/
+         })
         (bigRecyclerView.layoutManager as LinearLayoutManager).scrollToPosition(position)
     }
 
     private fun initSmallRecycler(imageUrls: List<String>, position: Int) {
         val recyclerView: RecyclerView = binding.photoVp
         recyclerView.layoutManager = LinearLayoutManager(
-            requireContext(), LinearLayoutManager.HORIZONTAL, false
+            requireContext(), LinearLayoutManager.HORIZONTAL, true
         )
         val stateClickListener: PhotoCarouselAdapter.OnStateClickListener =
             object : PhotoCarouselAdapter.OnStateClickListener {
