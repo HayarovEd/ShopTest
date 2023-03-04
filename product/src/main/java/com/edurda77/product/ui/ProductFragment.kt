@@ -16,6 +16,9 @@ import com.edurda77.product.presentation.BigPhotoAdapter
 import com.edurda77.product.presentation.PhotoCarouselAdapter
 import com.edurda77.product.presentation.ProductFragmentState
 import com.edurda77.product.presentation.ProductViewModel
+import com.mig35.carousellayoutmanager.CarouselLayoutManager
+import com.mig35.carousellayoutmanager.CarouselZoomPostLayoutListener
+import com.mig35.carousellayoutmanager.CenterScrollListener
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -83,18 +86,24 @@ class ProductFragment : Fragment() {
 
     private fun initSmallRecycler(imageUrls: List<String>, position: Int) {
         val recyclerView: RecyclerView = binding.photoVp
-        recyclerView.layoutManager = LinearLayoutManager(
-            requireContext(), LinearLayoutManager.HORIZONTAL, true
-        )
+        val layoutManager = CarouselLayoutManager( CarouselLayoutManager.HORIZONTAL)
+        layoutManager.setPostLayoutListener(CarouselZoomPostLayoutListener())
+        recyclerView.layoutManager = layoutManager
+        recyclerView.setHasFixedSize(true)
         val stateClickListener: PhotoCarouselAdapter.OnStateClickListener =
             object : PhotoCarouselAdapter.OnStateClickListener {
                 override fun onStateClick(item: String, position: Int) {
                     viewModel.getPosition(position)
+                    recyclerView.scrollToPosition(position)
+
                 }
             }
         val adapter = PhotoCarouselAdapter(imageUrls, stateClickListener)
         recyclerView.adapter = adapter
+        recyclerView.addOnScrollListener(CenterScrollListener())
 
     }
+
+
 
 }
