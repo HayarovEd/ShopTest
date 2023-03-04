@@ -6,6 +6,7 @@ sealed class ProductFragmentState {
     object Loading: ProductFragmentState()
     class Error(val error:String): ProductFragmentState()
     class Success (
-        val data: ProductDetail
+        val data: ProductDetail,
+        val position: Int = 0
     ): ProductFragmentState()
 }

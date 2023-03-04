@@ -12,18 +12,6 @@ class PhotoCarouselHolder (private val binding: ItemPagerBinding) :
         Glide.with(this.itemView.context)
             .load(item)
             .into(binding.photoIv)
-
-        binding.root.setOnFocusChangeListener { view, hasFocus ->
-            if(hasFocus) {
-                val anim = AnimationUtils.loadAnimation(view.context, R.anim.scale_in_tv);
-                binding.root.startAnimation(anim)
-                anim.fillAfter = true
-            } else {
-                val anim = AnimationUtils.loadAnimation(view.context, R.anim.scale_out_tv);
-                binding.root.startAnimation(anim)
-                anim.fillAfter = true
-            }
-        }
     }
 
 }
