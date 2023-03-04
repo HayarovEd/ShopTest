@@ -3,22 +3,22 @@ package com.edurda77.product.presentation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.edurda77.product.databinding.ItemPagerBinding
+import com.edurda77.product.databinding.ItemPhotoProductBinding
 
-class PhotoCarouselAdapter(private val carouselDataList: List<String>,
-                           private val onClickListener: OnStateClickListener) :
-    RecyclerView.Adapter<PhotoCarouselHolder>() {
+class BigPhotoAdapter(private val carouselDataList: List<String>,
+                      private val onClickListener: OnStateClickListener) :
+    RecyclerView.Adapter<BigPhotoHolder>() {
 
     interface OnStateClickListener {
         fun onStateClick(item: String, position: Int)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoCarouselHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BigPhotoHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return PhotoCarouselHolder(ItemPagerBinding.inflate(inflater,parent,false))
+        return BigPhotoHolder(ItemPhotoProductBinding.inflate(inflater,parent,false))
     }
 
-    override fun onBindViewHolder(holder: PhotoCarouselHolder, position: Int) {
+    override fun onBindViewHolder(holder: BigPhotoHolder, position: Int) {
         val item: String = carouselDataList[position]
         holder.bind(item)
         holder.itemView.setOnClickListener {

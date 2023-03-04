@@ -109,7 +109,7 @@ class HomeFragment : Fragment() {
             }
         val adapter = FlashSaleAdapter(flashSales, stateClickListener)
         recyclerView.adapter = adapter
-        (recyclerView.layoutManager as LinearLayoutManager).scrollToPosition((Integer.MAX_VALUE/2)-1)
+        //(recyclerView.layoutManager as LinearLayoutManager).scrollToPosition((Integer.MAX_VALUE/2)-1)
     }
 
     private fun initLatestRecyclerView(latest: List<ElementLatest>) {
