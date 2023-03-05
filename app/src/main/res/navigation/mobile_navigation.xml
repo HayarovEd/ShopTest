@@ -58,5 +58,9 @@
     <fragment
         android:id="@+id/product_fragment"
         android:name="com.edurda77.product.ui.ProductFragment"
-        android:label="ProductFragment" />
+        android:label="ProductFragment" >
+        <action
+            android:id="@+id/action_product_fragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 </navigation>

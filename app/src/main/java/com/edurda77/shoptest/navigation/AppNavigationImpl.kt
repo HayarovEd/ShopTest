@@ -41,6 +41,10 @@ class AppNavigationImpl @Inject constructor(
             Action.HomeToProduct -> {
                 navController.navigate(R.id.product_fragment)
             }
+            Action.ProductToHome -> {
+                navController.navigate(R.id.navigation_home)
+            }
         }
     }
 }
+

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.edurda77.domain.navigation.AppNavigation
 import com.edurda77.domain.R
+import com.edurda77.domain.navigation.Action
 import com.edurda77.product.databinding.FragmentProductBinding
 import com.edurda77.product.presentation.BigPhotoAdapter
 import com.edurda77.product.presentation.PhotoCarouselAdapter
@@ -40,6 +41,12 @@ class ProductFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.leftIv.setOnClickListener {
+            coordinator.execute(
+                action = Action.ProductToHome,
+                user = ""
+            )
+        }
         viewModel.state.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is ProductFragmentState.Success -> {

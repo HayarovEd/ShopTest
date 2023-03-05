@@ -6,4 +6,6 @@ sealed interface Action {
     object LogInToHome : Action
     object HomeToProduct : Action
     object ProfileToSignIn : Action
+
+    object ProductToHome : Action
 }
