@@ -14,3 +14,10 @@ dependencyResolutionManagement {
 }
 rootProject.name = "ShopTest"
 include ':app'
+include ':domain'
+include ':data'
+include ':sigin'
+include ':login'
+include ':profile'
+include ':home'
+include ':product'

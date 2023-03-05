@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sign_in">Sign in</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="email">Email</string>
+    <string name="already_account">Already have an account?</string>
+    <string name="log_in">Log in</string>
+    <string name="sign_in_google">Sign in with Google</string>
+    <string name="sign_in_apple">Sign in with Apple</string>
+
+    <string name="well_comeback">Welcome back</string>
+    <string name="password">Password</string>
+
+    <string name="profile">Profile</string>
+    <string name="change_photo">Change photo</string>
+    <string name="name">Satria Adhi Pradana</string>
+    <string name="upload">Upload item</string>
+    <string name="trade_store">Trade store</string>
+    <string name="payment">Payment method</string>
+    <string name="balance">Balance</string>
+    <string name="balance_nominal">$ 1593</string>
+    <string name="trade_history">Trade history</string>
+    <string name="restore_purchase">Restore Purchase</string>
+    <string name="help">Help</string>
+    <string name="log_out">Log out</string>
+
+    <string name="trade_by">Trade by </string>
+    <string name="bata"> bata</string>
+    <string name="location">Location</string>
+    <string name="hint_search">What are you looking for ?</string>
+    <string name="phones">Phones</string>
+    <string name="headphones">Headphones</string>
+    <string name="games">Games</string>
+    <string name="cars">Cars</string>
+    <string name="furniture">Furniture</string>
+    <string name="kids">Kids</string>
+    <string name="latest">Latest</string>
+    <string name="view_all">View all</string>
+    <string name="flash_Sale">Flash Sale</string>
+    <string name="brands">Brands</string>
+    <string name="add_to_cart">ADD TO CART</string>
+
+    <string name="color">Color</string>
+    <string name="quantity">Quantity:</string>
+
+</resources>
+
