@@ -1,22 +1,20 @@
 package com.edurda77.product.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.edurda77.domain.navigation.AppNavigation
-import com.edurda77.domain.R
+import com.edurda77.domain.model.ProductDetail
 import com.edurda77.domain.navigation.Action
+import com.edurda77.domain.navigation.AppNavigation
 import com.edurda77.product.databinding.FragmentProductBinding
-import com.edurda77.product.presentation.BigPhotoAdapter
-import com.edurda77.product.presentation.PhotoCarouselAdapter
-import com.edurda77.product.presentation.ProductFragmentState
-import com.edurda77.product.presentation.ProductViewModel
+import com.edurda77.product.presentation.*
 import com.mig35.carousellayoutmanager.CarouselLayoutManager
 import com.mig35.carousellayoutmanager.CarouselZoomPostLayoutListener
 import com.mig35.carousellayoutmanager.CenterScrollListener
@@ -39,6 +37,7 @@ class ProductFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.leftIv.setOnClickListener {
@@ -47,17 +46,30 @@ class ProductFragment : Fragment() {
                 user = ""
             )
         }
+        viewModel.count.observe(viewLifecycleOwner) {
+            binding.countTv.text = it.toString()
+        }
+        viewModel.amount.observe(viewLifecycleOwner) {
+            binding.amountsTv.text = "# $it"
+        }
+        binding.decrBt.setOnClickListener {
+            viewModel.changeCount(-1)
+        }
+        binding.incrBt.setOnClickListener {
+            viewModel.changeCount(1)
+        }
+
         viewModel.state.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is ProductFragmentState.Success -> {
                     initSmallRecycler(
-                        imageUrls = state.data.imageUrls,
-                        position = state.position
+                        imageUrls = state.data.imageUrls
                     )
                     initBigRecycler(
                         imageUrls = state.data.imageUrls,
                         position = state.position
                     )
+                    initData(state.data)
                 }
                 is ProductFragmentState.Error -> {
 
@@ -67,6 +79,27 @@ class ProductFragment : Fragment() {
                 }
             }
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun initData(data: ProductDetail) {
+        binding.nameTv.text = data.name
+        binding.priceTv.text = "$ ${data.price}"
+        binding.descriptionTv.text = data.description
+        binding.rangTv.text = data.rating.toString()
+        binding.reviewsTv.text = "(${data.numberOfReviews})"
+        val recyclerView: RecyclerView = binding.colorRv
+        recyclerView.layoutManager = LinearLayoutManager(
+            requireContext(), LinearLayoutManager.HORIZONTAL, false
+        )
+        val stateClickListener: ColorAdapter.OnStateClickListener =
+            object : ColorAdapter.OnStateClickListener {
+                override fun onStateClick(item: String, position: Int) {
+                    Toast.makeText(requireContext(), item, Toast.LENGTH_LONG).show()
+                }
+            }
+        val adapter = ColorAdapter(data.colors, stateClickListener)
+        recyclerView.adapter = adapter
     }
 
     private fun initBigRecycler(imageUrls: List<String>, position: Int) {
@@ -94,7 +127,7 @@ class ProductFragment : Fragment() {
         (bigRecyclerView.layoutManager as LinearLayoutManager).scrollToPosition(position)
     }
 
-    private fun initSmallRecycler(imageUrls: List<String>, position: Int) {
+    private fun initSmallRecycler(imageUrls: List<String>) {
         val recyclerView: RecyclerView = binding.photoVp
         val layoutManager = CarouselLayoutManager( CarouselLayoutManager.HORIZONTAL)
         layoutManager.setPostLayoutListener(CarouselZoomPostLayoutListener())

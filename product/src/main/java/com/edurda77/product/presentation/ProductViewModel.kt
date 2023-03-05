@@ -12,8 +12,14 @@ import javax.inject.Inject
 class ProductViewModel @Inject constructor(private val getProductDetails: GetProductDetails) :
     ViewModel() {
     private var products = MutableLiveData<ProductDetail?>()
+    //private var amount = MutableLiveData<ProductDetail?>()
     private val _state = MutableLiveData<ProductFragmentState>(ProductFragmentState.Loading)
     val state = _state
+    var price = 0
+    private val _amount = MutableLiveData(0)
+    val amount = _amount
+    private val _count = MutableLiveData(0)
+    val count = _count
 
     init {
         getDetails()
@@ -24,6 +30,17 @@ class ProductViewModel @Inject constructor(private val getProductDetails: GetPro
                 data = it,
                 position = position
             )
+        }
+    }
+
+    fun changeCount(changeCount:Int) {
+        viewModelScope.launch {
+            if (_count.value==0&&changeCount==-1){
+                return@launch
+            } else {
+                _count.value = _count.value?.plus(changeCount)
+                _amount.value = count.value?.times(price)
+            }
         }
     }
     private fun getDetails() {
@@ -37,6 +54,7 @@ class ProductViewModel @Inject constructor(private val getProductDetails: GetPro
                             )
                         }
                     products.value = result.data
+                    price = result.data?.price ?: 0
                 }
                 is Resource.Error -> {
                     _state.value =
