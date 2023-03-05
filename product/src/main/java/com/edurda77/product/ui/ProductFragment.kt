@@ -64,23 +64,26 @@ class ProductFragment : Fragment() {
 
     private fun initBigRecycler(imageUrls: List<String>, position: Int) {
         val bigRecyclerView: RecyclerView = binding.photoRv
-        bigRecyclerView.layoutManager = LinearLayoutManager(
+        val layoutManager = LinearLayoutManager(
             requireContext(), LinearLayoutManager.HORIZONTAL, false
         )
-        val bigStateClickListener: BigPhotoAdapter.OnStateClickListener =
-            object : BigPhotoAdapter.OnStateClickListener {
-                override fun onStateClick(item: String, position: Int) {
-                    //viewModel.getPosition(position)
-                }
-            }
-        val bigAdapter = BigPhotoAdapter(imageUrls, bigStateClickListener)
+        bigRecyclerView.layoutManager = layoutManager
+
+        val bigAdapter = BigPhotoAdapter(imageUrls)
         bigRecyclerView.adapter = bigAdapter
         bigRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                 val currentPosition = (recyclerView.layoutManager as LinearLayoutManager).findFirstCompletelyVisibleItemPosition()
-                 //viewModel.getPosition(currentPosition)
-             }
-         })
+            var lastPosition = 0
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val currentVisibleItemPosition =
+                    layoutManager.findFirstVisibleItemPosition()
+
+                if (lastPosition != currentVisibleItemPosition && currentVisibleItemPosition != RecyclerView.NO_POSITION) {
+                    lastPosition = currentVisibleItemPosition
+
+                }
+            }
+        })
         (bigRecyclerView.layoutManager as LinearLayoutManager).scrollToPosition(position)
     }
 
