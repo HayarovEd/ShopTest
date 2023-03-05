@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.LogInFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/signInTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="123dp"
+        android:gravity="center"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="@string/well_comeback"
+        android:textColor="@color/text_dark"
+        android:textSize="26sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/loginEv"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="44dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:background="@drawable/shape_gray"
+        android:gravity="center"
+        android:hint="@string/first_name"
+        android:textColorHint="@color/text_gray"
+        android:textSize="11sp"
+        app:layout_constraintTop_toBottomOf="@id/signInTv" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordIl"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="44dp"
+        android:fontFamily="@font/montserrat_regular"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
+        app:hintAnimationEnabled="false"
+        app:hintEnabled="false"
+        app:layout_constraintTop_toBottomOf="@id/loginEv"
+        app:passwordToggleEnabled="true">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/passwordEv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_gray"
+            android:paddingStart="50dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/password"
+            android:paddingTop="4dp"
+            android:textColorHint="@color/text_gray"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:ems="15"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logInBt"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="99dp"
+        android:layout_marginEnd="43dp"
+        android:background="@drawable/shape_blue"
+        android:text="@string/log_in"
+        android:textAllCaps="false"
+        android:textColor="@color/text_light"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/passwordIl" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,6 @@
+<resources>
+    <string name="sign_in">Sign in</string>
+    <string name="notification">notification</string>
+    <string name="favorite">favorite</string>
+    <string name="basket">basket</string>
+</resources>

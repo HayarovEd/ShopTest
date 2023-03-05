@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.ProductFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/leftIv"
+            android:layout_width="6dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_left_arrow_short"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/photoRv"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="11dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/leftIv"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/photoVp"
+            android:layout_width="225dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="35dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/photoRv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/nameTv"
+            android:layout_width="186dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/poppins_regular"
+            android:lines="2"
+            android:text="@string/latest"
+            android:textColor="@color/text_dark"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/photoVp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/priceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="23dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/latest"
+            android:textColor="@color/text_dark"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/photoVp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/descriptionTv"
+            android:layout_width="231dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="22dp"
+            android:fontFamily="@font/poppins_regular"
+            android:lines="3"
+            android:text="@string/latest"
+            android:textColor="@color/text_gray_light"
+            android:textSize="9sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nameTv" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/starTv"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="22dp"
+            android:src="@drawable/ic_star"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/descriptionTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/rangTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/latest"
+            android:textColor="@color/text_dark"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="@id/starTv"
+            app:layout_constraintStart_toEndOf="@id/starTv"
+            app:layout_constraintTop_toTopOf="@id/starTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/reviewsTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/latest"
+            android:textColor="@color/text_gray_light"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="@id/starTv"
+            app:layout_constraintStart_toEndOf="@id/rangTv"
+            app:layout_constraintTop_toTopOf="@id/starTv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/colorTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="13dp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/color"
+            android:textColor="@color/text_grey_300"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/starTv" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/colorRv"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginTop="11dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/colorTv" />
+
+       <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:backgroundTint="@color/background_dark_700"
+            app:cardCornerRadius="25dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/colorRv"
+           app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/quantityTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="@string/quantity"
+                    android:textColor="@color/text_gray_light"
+                    android:textSize="9sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/decrBt"
+                    android:layout_width="38dp"
+                    android:layout_height="22dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_dark_blue"
+                    android:src="@drawable/baseline_remove_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/quantityTv" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/countTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="0"
+                    android:textColor="@color/text_gray_light"
+                    android:textSize="13sp"
+                    app:layout_constraintStart_toEndOf="@id/decrBt"
+                    app:layout_constraintTop_toTopOf="@id/decrBt"
+                    app:layout_constraintBottom_toBottomOf="@id/decrBt"/>
+
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/incrBt"
+                    android:layout_width="38dp"
+                    android:layout_height="22dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_dark_blue"
+                    android:src="@drawable/baseline_add_24"
+                    app:layout_constraintStart_toEndOf="@id/countTv"
+                    app:layout_constraintTop_toBottomOf="@id/quantityTv" />
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardInner"
+                    android:layout_width="170dp"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_marginEnd="23dp"
+                    android:backgroundTint="@color/background_dark_blue"
+                    app:cardCornerRadius="15dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/amountsTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/quantity"
+                            android:textColor="@color/text_blue_light"
+                            android:textSize="8sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/addToCartTv"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/addToCartTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_regular"
+                            android:text="@string/add_to_cart"
+                            android:textColor="@color/text_white"
+                            android:textSize="8sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/amountsTv"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
